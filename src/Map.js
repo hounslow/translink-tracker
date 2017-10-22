@@ -21,6 +21,7 @@ class Map extends Component {
   render() {
     return (
       <div className="Map">
+      Hello
       </div>
     );
   }

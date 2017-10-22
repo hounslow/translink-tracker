@@ -6,7 +6,6 @@ import Map from './Map.js';
 
 class App extends Component {
   render() {
-    this.getBusPoints();
     return (
       <div className="App">
         <Map />
