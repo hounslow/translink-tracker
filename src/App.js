@@ -12,9 +12,8 @@ class App extends Component {
   }
 
   getBusPoints() {
-    const url = `http://gtfs.translink.ca/gtfsposition?apikey=${process.env['TRANSLINK']}`
     request
-    .get(url)
+    .get('/api')
     .set('accept', 'application/json')
     .end((err, res) => {
       if (err) throw err;
