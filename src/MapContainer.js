@@ -17,52 +17,60 @@ class MapContainer extends Component {
         width: window.innerWidth,
         height: window.innerHeight
       },
-      buses: [],
       positions: []
     };
+    this.resizeView = this.resizeView.bind(this);
     this.getBusPoints = this.getBusPoints.bind(this);
     this.convertToPosition = this.convertToPosition.bind(this);
-  };
+  }
 
   componentWillMount() {
     this.getBusPoints();
-  };
+  }
 
-  // componentDidMount() {
-  //   this.getBusPoints();
-  // //   // this.convertToPosition(this.state.buses);
-  // };
+  componentDidMount() {
+    const updateTime = 10000;
+    setInterval(this.getBusPoints, updateTime);
+  }
+
+  resizeView(currentView) {
+    let view = this.state.viewport;
+    view.width = currentView.width;
+    view.height = currentView.height;
+    this.setState({
+      viewport: view
+    });
+  }
 
   getBusPoints() {
     return request
     .get('/api').then(({body}) => {
-      this.setState({buses: body});
       this.convertToPosition(body);
     });
-  };
+  }
 
   convertToPosition(buses) {
     let positionArray = [];
-    buses.forEach((bus) => {
+    buses.map((bus) => {
       positionArray.push({lat: bus.Latitude, lon: bus.Longitude});
-      this.setState({positions: positionArray});
     });
+    this.setState({positions: positionArray});
   }
 
   render() {
     const {viewport} = this.state;
     return (
       <div className="MapContainer">
-      <ReactMapGL
-      {...viewport}
-      mapStyle="mapbox://styles/mapbox/streets-v9"
-      onViewportChange={v => this.setState({viewport: v})}
-      mapboxApiAccessToken={MAPBOX_TOKEN}>
-      {this.state.positions.map((position, index) => (
-        <Marker latitude={position.lat} longitude={position.lon} key={index}>
-        </Marker>
-      ))}
-      </ReactMapGL>
+        <ReactMapGL
+          {...viewport}
+          mapStyle="mapbox://styles/mapbox/streets-v9"
+          onViewportChange={this.resizeView}
+          mapboxApiAccessToken={MAPBOX_TOKEN}>
+          {this.state.positions.map((position, index) => (
+            <Marker latitude={position.lat} longitude={position.lon} key={index}>
+            </Marker>
+          ))}
+        </ReactMapGL>
       </div>
     );
   }
