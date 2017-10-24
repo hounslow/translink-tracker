@@ -50,10 +50,7 @@ class MapContainer extends Component {
   }
 
   convertToPosition(buses) {
-    let positionArray = [];
-    buses.map((bus) => {
-      positionArray.push({lat: bus.Latitude, lon: bus.Longitude});
-    });
+    let positionArray = buses.map((bus) => ({lat: bus.Latitude, lon: bus.Longitude}));
     this.setState({positions: positionArray});
   }
 
