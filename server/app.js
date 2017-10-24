@@ -7,19 +7,24 @@ const cors = require('cors');
 const app = express();
 require('dotenv').config();
 
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/api', (req, res) => {
-  // const url = `http://gtfs.translink.ca/gtfsposition?apikey=${process.env['TRANSLINK']}`;
-  // request(url, function (error, response, body) {
-  //   console.log('error:', error); // Print the error if one occurred
-  //   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  //   console.log('body:', body); // Print the HTML for the Google homepage.
-  // });
-  res.send("Hello");
+  const url = `http://api.translink.ca/rttiapi/v1/buses?apikey=${process.env['TRANSLINK']}`;
+  request({
+    uri: url,
+    method: "GET",
+    json: true
+  }, (err, response, body) => {
+    if (err || response.statusCode !== 200) {
+      return res.sendStatus(500);
+    } else {
+      res.json(body);
+    }
+  });
 });
 
 module.exports = app;

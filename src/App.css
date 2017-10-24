@@ -1,5 +1,24 @@
 .App {
   text-align: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.mapboxgl-canvas {
+  width: 100% !important;
+  height: 100% !important;
+  position: inherit !important;
+}
+
+.mapboxgl-control-container {
+  display: none !important;
+}
+
+.mapboxgl-marker {
+  background-color: black;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
 }
 
 .App-logo {
