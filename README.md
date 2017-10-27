@@ -1,3 +1,5 @@
+#translink-tracker
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -9,15 +11,15 @@ This map app displays the positions of translink buses in metro Vancouver. The p
 
 The map was created using Mapbox GL.
 
-Frontend
+##Frontend
 
 Frontend was done using React
 
-Backend
+##Backend
 
 Backend is a simple Express server that requests from Translink's API, and that the client-side requests the bus information from using Superagent.
 
-To Run
+##To Run
 
 $ git clone git@github.com:hounslow/translink-tracker.git
 $ npm install in root and in server as these have different dependencies.
