@@ -29,7 +29,6 @@ class MapContainer extends Component {
   }
 
   componentDidMount() {
-    this.getBusPoints();
     const updateTime = 10000;
     setInterval(this.getBusPoints, updateTime);
   }
