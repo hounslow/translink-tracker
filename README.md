@@ -21,6 +21,8 @@ Backend is a simple Express server that requests from Translink's API, and that 
 
 ## To Run
 
-$ git clone git@github.com:hounslow/translink-tracker.git
-$ npm install in root and in server as these have different dependencies.
-$ npm start in both /server and the root
+1. $ git clone git@github.com:hounslow/translink-tracker.git
+
+2. $ npm install in root and in server
+
+3. $ npm start in both /server and the root
