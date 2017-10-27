@@ -43,7 +43,14 @@
     "webpack": "3.5.1",
     "webpack-dev-server": "2.8.2",
     "webpack-manifest-plugin": "1.2.1",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "2.0.3",
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "logger": "0.0.1",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.12.1",
+    "request": "^2.83.0"
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -88,7 +95,10 @@
       "react-app"
     ]
   },
-  "proxy": "http://localhost:3001",
+  "engines": {
+    "node": "8.4.0"
+  },
+  "homepage": "https://chrisboshfanclub.herokuapp.com",
   "eslintConfig": {
     "extends": "react-app"
   }

@@ -7,7 +7,7 @@ const cors = require('cors');
 const app = express();
 require('dotenv').config();
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../build')));
 app.use(cors());
 
 app.get('/api', (req, res) => {
