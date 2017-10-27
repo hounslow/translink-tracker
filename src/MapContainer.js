@@ -44,7 +44,7 @@ class MapContainer extends Component {
 
   getBusPoints() {
     return request
-    .get('https://serene-plateau-57295.herokuapp.com/api').then(({body}) => {
+    .get('/api').then(({body}) => {
       this.convertToPosition(body);
     });
   }

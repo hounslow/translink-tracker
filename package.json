@@ -98,7 +98,7 @@
   "engines": {
     "node": "8.4.0"
   },
-  "homepage": "https://chrisboshfanclub.herokuapp.com",
+  "homepage": "https://.herokuapp.com",
   "eslintConfig": {
     "extends": "react-app"
   }
